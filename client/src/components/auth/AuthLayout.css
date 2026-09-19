@@ -1,0 +1,1579 @@
+
+/* 
+//      2nd updated css */
+
+
+
+/* =========================================================
+   NEXORA AUTHENTICATION UI
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  font-family: "Inter", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(124, 58, 237, 0.28),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59, 130, 246, 0.28),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 70% 90%,
+      rgba(236, 72, 153, 0.25),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #f8f5ff 45%,
+      #eff6ff 100%
+    );
+
+  color: #111827;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.auth-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gradient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+}
+
+.blob-one {
+  width: 400px;
+  height: 400px;
+
+  top: -180px;
+  left: -100px;
+
+  background: #8b5cf6;
+}
+
+.blob-two {
+  width: 350px;
+  height: 350px;
+
+  right: -100px;
+  bottom: -100px;
+
+  background: #ec4899;
+}
+
+.blob-three {
+  width: 280px;
+  height: 280px;
+
+  left: 45%;
+  top: 40%;
+
+  background: #3b82f6;
+
+  opacity: 0.18;
+}
+
+
+/* =========================================================
+   FLOATING SHAPES
+   ========================================================= */
+
+.floating-shape {
+  position: absolute;
+
+  border-radius: 30%;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 20px 50px rgba(79, 70, 229, 0.08);
+}
+
+.shape-one {
+  width: 90px;
+  height: 90px;
+
+  top: 12%;
+  left: 5%;
+
+  transform: rotate(25deg);
+}
+
+.shape-two {
+  width: 55px;
+  height: 55px;
+
+  top: 25%;
+  right: 7%;
+
+  border-radius: 50%;
+}
+
+.shape-three {
+  width: 70px;
+  height: 70px;
+
+  bottom: 15%;
+  left: 8%;
+
+  transform: rotate(45deg);
+}
+
+.shape-four {
+  width: 45px;
+  height: 45px;
+
+  bottom: 25%;
+  right: 10%;
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   FLOATING ICONS
+   ========================================================= */
+
+.floating-icon {
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.85),
+      rgba(168, 85, 247, 0.85)
+    );
+
+  box-shadow:
+    0 15px 35px rgba(99, 102, 241, 0.25);
+
+  backdrop-filter: blur(10px);
+}
+
+.cart-icon {
+  top: 9%;
+  right: 18%;
+}
+
+.sparkle-icon {
+  top: 52%;
+  left: 4%;
+}
+
+.shield-icon {
+  bottom: 10%;
+  right: 30%;
+}
+
+.truck-icon {
+  top: 35%;
+  right: 4%;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.auth-container {
+  position: relative;
+  z-index: 5;
+
+  width: min(1180px, calc(100% - 50px));
+
+  min-height: calc(100vh - 70px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(420px, 480px);
+
+  gap: 70px;
+
+  align-items: center;
+
+  padding: 45px 0;
+}
+
+
+/* =========================================================
+   LEFT SHOWCASE
+   ========================================================= */
+
+.auth-showcase {
+  position: relative;
+
+  min-height: 650px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 15px 0;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed,
+      #db2777
+    );
+
+  box-shadow:
+    0 12px 30px rgba(124, 58, 237, 0.25);
+}
+
+.brand h1 {
+  margin: 0;
+
+  font-size: 25px;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  color: #64748b;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   SHOWCASE CONTENT
+   ========================================================= */
+
+.showcase-content {
+  max-width: 550px;
+
+  margin-top: 45px;
+}
+
+.mini-badge {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  margin-bottom: 20px;
+
+  border-radius: 999px;
+
+  color: #6d28d9;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 8px 30px rgba(79, 70, 229, 0.08);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+}
+
+.showcase-content h2 {
+  margin: 0;
+
+  max-width: 570px;
+
+  font-size: clamp(40px, 4vw, 62px);
+
+  line-height: 1.04;
+
+  letter-spacing: -3px;
+
+  font-weight: 800;
+
+  color: #111827;
+}
+
+.showcase-content h2 span {
+  display: block;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #7c3aed,
+      #db2777
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.showcase-content p {
+  max-width: 500px;
+
+  margin-top: 24px;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color: #64748b;
+}
+
+
+/* =========================================================
+   SHOPPING ILLUSTRATION
+   ========================================================= */
+
+.shopping-illustration {
+  position: absolute;
+
+  width: 380px;
+  height: 330px;
+
+  right: 10px;
+  bottom: 100px;
+}
+
+.illustration-glow {
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  top: 40px;
+  left: 65px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.25),
+      rgba(168, 85, 247, 0.3)
+    );
+
+  filter: blur(20px);
+}
+
+
+/* BAG */
+
+.shopping-bag {
+  position: absolute;
+
+  left: 105px;
+  top: 85px;
+
+  z-index: 3;
+
+  transform-origin: center bottom;
+}
+
+.bag-handle {
+  width: 75px;
+  height: 65px;
+
+  margin: auto;
+
+  border: 8px solid #7c3aed;
+
+  border-bottom: 0;
+
+  border-radius: 40px 40px 0 0;
+}
+
+.bag-body {
+  width: 125px;
+  height: 135px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px 15px 25px 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #3b82f6,
+      #7c3aed
+    );
+
+  box-shadow:
+    0 25px 40px rgba(79, 70, 229, 0.3);
+
+  transform: perspective(300px) rotateX(-5deg);
+}
+
+.bag-body span {
+  font-size: 55px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-weight: 800;
+}
+
+
+/* BOX */
+
+.shopping-box {
+  position: absolute;
+
+  right: 20px;
+  bottom: 25px;
+
+  width: 115px;
+  height: 100px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f59e0b,
+      #fb7185
+    );
+
+  box-shadow:
+    0 20px 35px rgba(245, 158, 11, 0.25);
+}
+
+.box-ribbon {
+  position: absolute;
+
+  width: 20px;
+  height: 100%;
+
+  left: 48px;
+
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.box-ribbon-horizontal {
+  position: absolute;
+
+  height: 20px;
+  width: 100%;
+
+  top: 40px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+/* PRODUCT CARDS */
+
+.product-card {
+  position: absolute;
+
+  width: 75px;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 20px 40px rgba(79, 70, 229, 0.13);
+
+  backdrop-filter: blur(15px);
+}
+
+.product-card-one {
+  top: 35px;
+  left: 20px;
+}
+
+.product-card-two {
+  right: 25px;
+  top: 55px;
+}
+
+.product-circle {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: white;
+
+  font-size: 21px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #a855f7
+    );
+}
+
+
+/* =========================================================
+   TRUST CARDS
+   ========================================================= */
+
+.trust-cards {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: auto;
+}
+
+.trust-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 11px 14px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.48);
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(15px);
+}
+
+.trust-card svg {
+  color: #7c3aed;
+}
+
+.trust-card strong,
+.trust-card span {
+  display: block;
+}
+
+.trust-card strong {
+  font-size: 11px;
+}
+
+.trust-card span {
+  margin-top: 2px;
+
+  color: #64748b;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   AUTH CARD
+   ========================================================= */
+
+.auth-card {
+  width: 100%;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 14px;
+
+  border-radius: 32px;
+
+  background:
+    rgba(255, 255, 255, 0.55);
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  box-shadow:
+    0 35px 90px rgba(30, 41, 59, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  backdrop-filter: blur(30px);
+
+  scrollbar-width: none;
+}
+
+.auth-card::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   AUTH CONTENT
+   ========================================================= */
+
+.auth-content {
+  padding: 28px;
+
+  border-radius: 23px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.auth-tabs {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  padding: 5px;
+
+  margin-bottom: 30px;
+
+  border-radius: 14px;
+
+  background: #f1f5f9;
+}
+
+.auth-tabs a {
+  position: relative;
+
+  padding: 11px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  border-radius: 10px;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.auth-tabs a:hover {
+  color: #334155;
+}
+
+.auth-tabs .active-tab {
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.28);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.login-header {
+  margin-bottom: 25px;
+}
+
+.welcome-icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff,
+      #f5f3ff
+    );
+
+  font-size: 20px;
+}
+
+.login-header h2 {
+  margin: 0;
+
+  font-size: 27px;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+
+  font-weight: 800;
+
+  color: #111827;
+}
+
+.login-header h2 span {
+  color: #7c3aed;
+}
+
+.login-header p {
+  margin: 9px 0 0;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.auth-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.form-group label {
+  color: #334155;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-wrapper {
+  position: relative;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 14px;
+
+  border-radius: 13px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  transition:
+    border 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.input-wrapper svg {
+  flex-shrink: 0;
+
+  color: #94a3b8;
+
+  transition: color 0.25s ease;
+}
+
+.input-wrapper:focus-within {
+  background: white;
+
+  border-color: #8b5cf6;
+
+  box-shadow:
+    0 0 0 4px rgba(139, 92, 246, 0.1),
+    0 8px 20px rgba(99, 102, 241, 0.06);
+
+  transform: translateY(-1px);
+}
+
+.input-wrapper:focus-within svg {
+  color: #7c3aed;
+}
+
+.input-wrapper input {
+  width: 100%;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #1e293b;
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+.input-wrapper input::placeholder {
+  color: #a1aab8;
+}
+
+
+/* =========================================================
+   PASSWORD BUTTON
+   ========================================================= */
+
+.password-button {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 8px;
+
+  color: #94a3b8;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.password-button:hover {
+  color: #7c3aed;
+
+  background: #f1f5f9;
+}
+
+
+/* =========================================================
+   FORM OPTIONS
+   ========================================================= */
+
+.form-options {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: -2px;
+
+  font-size: 10px;
+}
+
+.form-options > a {
+  color: #6d28d9;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.form-options > a:hover {
+  text-decoration: underline;
+}
+
+.remember {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  cursor: pointer;
+
+  color: #64748b;
+}
+
+.remember input,
+.terms-checkbox input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.custom-checkbox {
+  width: 17px;
+  height: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  color: white;
+
+  background: #e2e8f0;
+
+  border: 1px solid #cbd5e1;
+
+  transition: all 0.2s ease;
+}
+
+.remember input:checked + .custom-checkbox,
+.terms-checkbox input:checked + .custom-checkbox {
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  border-color: transparent;
+}
+
+
+/* =========================================================
+   MAIN BUTTON
+   ========================================================= */
+
+.login-button {
+  position: relative;
+
+  width: 100%;
+
+  height: 49px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  overflow: hidden;
+
+  margin-top: 3px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      100deg,
+      #2563eb,
+      #7c3aed 55%,
+      #c026d3
+    );
+
+  box-shadow:
+    0 13px 25px rgba(99, 102, 241, 0.25);
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    box-shadow 0.25s ease;
+}
+
+.login-button::before {
+  content: "";
+
+  position: absolute;
+
+  width: 80px;
+  height: 200%;
+
+  top: -50px;
+  left: -100px;
+
+  transform: rotate(25deg);
+
+  background:
+    rgba(255, 255, 255, 0.2);
+
+  transition: left 0.6s ease;
+}
+
+.login-button:hover::before {
+  left: 110%;
+}
+
+.login-button:hover {
+  box-shadow:
+    0 18px 35px rgba(99, 102, 241, 0.35);
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 24px 0 17px;
+}
+
+.divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: #e2e8f0;
+}
+
+.divider p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTONS
+   ========================================================= */
+
+.social-buttons {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.social-buttons button {
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 11px;
+
+  color: #334155;
+
+  background: white;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-buttons button:hover {
+  border-color: #c4b5fd;
+
+  box-shadow:
+    0 8px 20px rgba(79, 70, 229, 0.08);
+}
+
+.google-icon {
+  font-size: 18px;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      90deg,
+      #4285f4,
+      #34a853,
+      #fbbc05,
+      #ea4335
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.apple-icon {
+  color: #111827;
+
+  font-size: 19px;
+}
+
+
+/* =========================================================
+   SIGNUP TEXT
+   ========================================================= */
+
+.signup-text {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin: 21px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+.signup-text a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  color: #6d28d9;
+
+  text-decoration: none;
+
+  font-weight: 700;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   PASSWORD STRENGTH
+   ========================================================= */
+
+.password-strength {
+  overflow: hidden;
+
+  padding-top: 7px;
+}
+
+.strength-bars {
+  display: flex;
+
+  gap: 4px;
+}
+
+.strength-bars span {
+  flex: 1;
+
+  height: 4px;
+
+  border-radius: 20px;
+
+  background: #e2e8f0;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.strength-bars .strength-active {
+  background:
+    linear-gradient(
+      90deg,
+      #22c55e,
+      #10b981
+    );
+
+  transform: scaleY(1.2);
+}
+
+.strength-info {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 5px;
+
+  color: #64748b;
+
+  font-size: 9px;
+}
+
+.strength-info svg {
+  color: #10b981;
+}
+
+
+/* =========================================================
+   PASSWORD MATCH
+   ========================================================= */
+
+.input-error {
+  border-color: #f87171 !important;
+
+  box-shadow:
+    0 0 0 3px rgba(248, 113, 113, 0.08);
+}
+
+.error-message {
+  color: #ef4444;
+
+  font-size: 9px;
+}
+
+.success-message {
+  color: #10b981;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   TERMS
+   ========================================================= */
+
+.terms-checkbox {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  color: #64748b;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+
+  cursor: pointer;
+}
+
+.terms-checkbox .custom-checkbox {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+}
+
+.terms-checkbox a {
+  color: #6d28d9;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.terms-checkbox a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.auth-footer {
+  position: relative;
+
+  z-index: 5;
+
+  padding-bottom: 18px;
+
+  text-align: center;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .auth-container {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(390px, 450px);
+
+    gap: 35px;
+  }
+
+  .showcase-content h2 {
+    font-size: 46px;
+  }
+
+  .shopping-illustration {
+    transform: scale(0.8);
+
+    transform-origin: bottom left;
+
+    left: -30px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .auth-container {
+    width: min(520px, calc(100% - 30px));
+
+    display: block;
+
+    padding: 25px 0;
+  }
+
+  .auth-showcase {
+    min-height: auto;
+
+    margin-bottom: 25px;
+  }
+
+  .showcase-content {
+    display: none;
+  }
+
+  .shopping-illustration {
+    display: none;
+  }
+
+  .trust-cards {
+    display: none;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .auth-card {
+    max-height: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .auth-container {
+    width: calc(100% - 20px);
+
+    padding: 15px 0;
+  }
+
+  .auth-card {
+    padding: 8px;
+
+    border-radius: 25px;
+  }
+
+  .auth-content {
+    padding: 21px 17px;
+
+    border-radius: 19px;
+  }
+
+  .brand-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand h1 {
+    font-size: 22px;
+  }
+
+  .auth-tabs {
+    margin-bottom: 23px;
+  }
+
+  .login-header h2 {
+    font-size: 23px;
+  }
+
+  .login-header p {
+    font-size: 11px;
+  }
+
+  .social-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .floating-icon {
+    transform: scale(0.75);
+  }
+
+  .cart-icon {
+    right: 5%;
+  }
+
+  .sparkle-icon {
+    left: 2%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .auth-content {
+    padding: 18px 14px;
+  }
+
+  .social-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .form-options {
+    font-size: 9px;
+  }
+
+}
+
