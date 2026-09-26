@@ -10,6 +10,7 @@ import ShopingLayout from "./components/ShoppingVIewCOmponents/ShopingLayout";
 import Home from "./pages/ShoppingView/Home";
 import Cart from "./pages/ShoppingView/Cart";
 import Checkout from "./pages/ShoppingView/Checkout";
+import Listing from "./pages/ShoppingView/Listing";
 
 function App() {
   return (
@@ -34,8 +35,8 @@ function App() {
           <Route index element={<Navigate to="home" replace />} />
           <Route path="home" element={<Home />} />
           <Route path="cart" element={<Cart/>} />
-          <Route path="checkout" element={<Checkout/>
-          } />
+          <Route path="checkout" element={<Checkout/>}/>
+          <Route path="listing" element={<Listing/>}/>
         </Route>
       </Routes>
     </>

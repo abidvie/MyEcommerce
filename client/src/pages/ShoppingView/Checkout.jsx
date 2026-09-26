@@ -1232,4 +1232,4 @@ function TagIcon() {
   );
 }
 
-export default Checkout;
+export default Checkout; 
