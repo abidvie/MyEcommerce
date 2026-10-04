@@ -1,267 +1,10 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import { motion } from "framer-motion";
-// import {
-//   User,
-//   Mail,
-//   Lock,
-//   Eye,
-//   EyeOff,
-// } from "lucide-react";
-
-// function Register() {
-//   const [showPassword, setShowPassword] = useState(false);
-//   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0, y: 20 }}
-//       animate={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 0.5 }}
-//     >
-
-//       {/* ================= TABS ================= */}
-
-//       <div className="auth-tabs">
-
-//         <Link to="/auth/login">
-//           Login
-//         </Link>
-
-//         <Link
-//           to="/auth/register"
-//           className="active-tab"
-//         >
-//           Sign Up
-//         </Link>
-
-//       </div>
-
-
-//       {/* ================= HEADER ================= */}
-
-//       <div className="login-header">
-
-//         <h2>
-//           Create your account
-//         </h2>
-
-//         <p>
-//           Join Nexora and start your shopping journey
-//         </p>
-
-//       </div>
-
-
-//       {/* ================= FORM ================= */}
-
-//       <form className="auth-form">
-
-//         {/* Name */}
-
-//         <label>
-//           Full name
-//         </label>
-
-//         <div className="input-wrapper">
-
-//           <User size={19} />
-
-//           <input
-//             type="text"
-//             placeholder="Enter your full name"
-//           />
-
-//         </div>
-
-
-//         {/* Email */}
-
-//         <label>
-//           Email address
-//         </label>
-
-//         <div className="input-wrapper">
-
-//           <Mail size={19} />
-
-//           <input
-//             type="email"
-//             placeholder="you@example.com"
-//           />
-
-//         </div>
-
-
-//         {/* Password */}
-
-//         <label>
-//           Password
-//         </label>
-
-//         <div className="input-wrapper">
-
-//           <Lock size={19} />
-
-//           <input
-//             type={showPassword ? "text" : "password"}
-//             placeholder="Create a password"
-//           />
-
-//           <button
-//             type="button"
-//             className="password-button"
-//             onClick={() =>
-//               setShowPassword(!showPassword)
-//             }
-//           >
-//             {showPassword ? (
-//               <EyeOff size={18} />
-//             ) : (
-//               <Eye size={18} />
-//             )}
-//           </button>
-
-//         </div>
-
-
-//         {/* Confirm Password */}
-
-//         <label>
-//           Confirm password
-//         </label>
-
-//         <div className="input-wrapper">
-
-//           <Lock size={19} />
-
-//           <input
-//             type={
-//               showConfirmPassword
-//                 ? "text"
-//                 : "password"
-//             }
-//             placeholder="Confirm your password"
-//           />
-
-//           <button
-//             type="button"
-//             className="password-button"
-//             onClick={() =>
-//               setShowConfirmPassword(
-//                 !showConfirmPassword
-//               )
-//             }
-//           >
-//             {showConfirmPassword ? (
-//               <EyeOff size={18} />
-//             ) : (
-//               <Eye size={18} />
-//             )}
-//           </button>
-
-//         </div>
-
-
-//         {/* Terms */}
-
-//         <label className="terms-checkbox">
-
-//           <input type="checkbox" />
-
-//           <span>
-//             I agree to the{" "}
-//             <a href="#">
-//               Terms & Conditions
-//             </a>{" "}
-//             and{" "}
-//             <a href="#">
-//               Privacy Policy
-//             </a>
-//           </span>
-
-//         </label>
-
-
-//         {/* Register button */}
-
-//         <motion.button
-//           type="submit"
-//           className="login-button"
-//           whileHover={{ scale: 1.02 }}
-//           whileTap={{ scale: 0.97 }}
-//         >
-//           Create Account
-//         </motion.button>
-
-//       </form>
-
-
-//       {/* ================= DIVIDER ================= */}
-
-//       <div className="divider">
-//         <span>or continue with</span>
-//       </div>
-
-
-//       {/* ================= SOCIAL ================= */}
-
-//       <div className="social-buttons">
-
-//         <button type="button">
-//           <span className="google-icon">
-//             G
-//           </span>
-
-//           Google
-//         </button>
-
-//         <button type="button">
-
-//           <span>
-//             ●
-//           </span>
-
-//           Apple
-
-//         </button>
-
-//       </div>
-
-
-//       {/* ================= LOGIN LINK ================= */}
-
-//       <p className="signup-text">
-
-//         Already have an account?
-
-//         <Link to="/auth/login">
-//           Login
-//         </Link>
-
-//       </p>
-
-//     </motion.div>
-//   );
-// }
-
-// export default Register;
-
-
-
-
-
-
-
-/// 2nd updated ui ////////////////////////
-
-
 
 
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDispatch } from "react-redux";
 import {
   User,
   Mail,
@@ -272,6 +15,8 @@ import {
   Check,
   ShieldCheck,
 } from "lucide-react";
+import { use } from "react";
+import { registerUser } from "../../store/AuthSlice/authslice";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -305,9 +50,11 @@ function Register() {
     if (strength === 3) return "Good password";
     return "Strong password";
   };
-
+   const dispatch=useDispatch();
+   const navigate=useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+   
 
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
@@ -320,7 +67,27 @@ function Register() {
     }
 
     // Add your registration API here later
-    console.log("Registration submitted");
+    // console.log("Registration submitted");
+     const formData = new FormData(e.target);
+
+        const data = Object.fromEntries(formData.entries());
+
+        data.termsAccepted = termsAccepted; // Convert to boolean
+
+        // console.log(data);
+
+        dispatch(registerUser(data))
+          .unwrap()
+          .then((response) => {
+            console.log("Registration successful:", response);
+            navigate("/auth/login");
+          })
+          .catch((error) => {
+            console.error("Registration failed:", error);
+            alert("Registration failed. Please try again.");
+          });
+
+
   };
 
   return (
@@ -393,6 +160,7 @@ function Register() {
 
             <input
               id="register-name"
+              name="name"
               type="text"
               placeholder="Enter your full name"
               autoComplete="name"
@@ -416,6 +184,7 @@ function Register() {
 
             <input
               id="register-email"
+              name="email"
               type="email"
               placeholder="you@example.com"
               autoComplete="email"
@@ -439,6 +208,7 @@ function Register() {
 
             <input
               id="register-password"
+              name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Create a strong password"
               autoComplete="new-password"
@@ -535,6 +305,7 @@ function Register() {
 
             <input
               id="confirm-password"
+              name="confirmPassword"
               type={
                 showConfirmPassword
                   ? "text"
@@ -608,6 +379,8 @@ function Register() {
 
           <input
             type="checkbox"
+            name="termsAccepted"
+            value={"true"}
             checked={termsAccepted}
             onChange={(e) =>
               setTermsAccepted(e.target.checked)

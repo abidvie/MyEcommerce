@@ -1,16 +1,4 @@
 
-// const express = require('express');
-
-// const app = express();
-// const port = 3000;
-
-// app.get('/', (req, res) => {
-//   res.send('Hello, World!');
-// });
-
-// app.listen(port, () => {
-//   console.log(`Server is running at http://localhost:${port}`);
-// });
 
 
 const express=require('express')
@@ -19,7 +7,7 @@ const cookieparser=require('cookie-parser')
 const cors=require('cors')
 const app=express()
 const port=process.env.PORT ||5000;
-
+const authRoutes=require('./routers/auth/auth_routes')
 
 mongoose.connect('mongodb+srv://sarkerdipto2055_db_user:7i3cr1Hjir9SUGNG@cluster0.zhurqsk.mongodb.net').then(()=>{
     console.log('connected to mongodb') 
@@ -45,6 +33,7 @@ app.use(
 
 app.use(cookieparser());
 app.use(express.json());
+app.use('/api/auth',authRoutes);
 
 
 app.listen(port,()=>{

@@ -141,16 +141,39 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../store/AuthSlice/authslice";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+
+     const formData=new FormData(e.target);
+     const data=Object.fromEntries(formData.entries());
+     console.log(data);
+
+     dispatch(loginUser(data)).unwrap()
+    .then((response) => {
+      console.log("Login successful:", response);
+      
+      // Handle successful login, e.g., redirect to dashboard
+    })
+    .catch((error) => {
+      console.error("Login failed:", error);
+      // Handle login failure, e.g., show error message
+    }); 
+
+
+
+
+
     // Add your login API here later
-    console.log("Login submitted");
+    // console.log("Login submitted");
   };
 
   return (
@@ -223,6 +246,7 @@ function Login() {
 
             <input
               id="login-email"
+              name="email"
               type="email"
               placeholder="you@example.com"
               autoComplete="email"
@@ -246,6 +270,7 @@ function Login() {
 
             <input
               id="login-password"
+              name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               autoComplete="current-password"
