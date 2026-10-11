@@ -977,6 +977,126 @@
 
 
 
+
+
+
+
+
+
+/* =========================================================
+   PRODUCT DESCRIPTION
+========================================================= */
+
+.description-form-group {
+  position: relative;
+}
+
+
+/* LABEL + CHARACTER COUNT */
+
+.description-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.description-label-row label {
+  margin-bottom: 0;
+}
+
+.description-label-row span {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+
+/* TEXTAREA */
+
+.description-form-group textarea {
+  width: 100%;
+  min-height: 125px;
+  padding: 14px 15px;
+
+  border: 1px solid #dfe3e8;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #1f2937;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+
+  outline: none;
+
+  resize: vertical;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* PLACEHOLDER */
+
+.description-form-group textarea::placeholder {
+  color: #a1a8b3;
+}
+
+
+/* FOCUS */
+
+.description-form-group textarea:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+
+  background: #ffffff;
+}
+
+
+/* HELPER TEXT */
+
+.description-helper {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #9ca3af;
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .description-form-group textarea {
+    min-height: 110px;
+
+    padding: 12px;
+
+    font-size: 13px;
+  }
+
+  .description-label-row span {
+    font-size: 11px;
+  }
+
+}
+
+
+
+
 @media (max-width: 1100px) {
   .product-stats-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -8,7 +8,7 @@ const cors=require('cors')
 const app=express()
 const port=process.env.PORT ||5000;
 const authRoutes=require('./routers/auth/auth_routes')
-
+const productRoutes=require('./routers/admin/Products_routs')
 mongoose.connect('mongodb+srv://sarkerdipto2055_db_user:7i3cr1Hjir9SUGNG@cluster0.zhurqsk.mongodb.net').then(()=>{
     console.log('connected to mongodb') 
 }).catch((err)=>{
@@ -34,6 +34,7 @@ app.use(
 app.use(cookieparser());
 app.use(express.json());
 app.use('/api/auth',authRoutes);
+app.use('/api/admin/products',productRoutes);
 
 
 app.listen(port,()=>{

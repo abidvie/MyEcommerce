@@ -71,6 +71,8 @@ const loginUser = async (req, res) => {
 
 
   res.cookie("token", token, {
+
+    
     httpOnly: true,
     secure: false,
     sameSite: "strict",
@@ -137,4 +139,5 @@ const authMiddleware=async(req,res,next)=>{
   }
 };
 
-module.exports = { registerUser, loginUser, logoutUser, authMiddleware,loginUser,authMiddleware };
+
+module.exports = { registerUser, loginUser, logoutUser,authMiddleware };

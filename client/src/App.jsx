@@ -24,8 +24,13 @@ function App() {
   useEffect(() => {
   dispatch(CheckAuthenticatedUser());
   }, [dispatch]);
-  const { isAuthenticated, user} = useSelector((state) => state.auth);
+  const { isAuthenticated, user,isLoading } = useSelector((state) => state.auth);
   // console.log("App.jsx isAuthenticated:", isAuthenticated, "user:", user);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <Routes>   
