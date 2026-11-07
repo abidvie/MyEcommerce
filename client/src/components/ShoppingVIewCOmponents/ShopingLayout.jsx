@@ -870,7 +870,7 @@ const ShopingLayout = () => {
     },
 
     {
-      label: "Shop",
+      label: "Products",
       path: "/shop/products",
     },
 

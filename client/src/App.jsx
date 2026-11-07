@@ -15,16 +15,18 @@ import CheckAuth from "./common/CheckAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { CheckAuthenticatedUser } from "./store/AuthSlice/authslice";
-
+import NewArrivals from "./pages/ShoppingView/NewArrivals";
+import ProductDetails from "./pages/ShoppingView/ProductDetails";
 
 function App() {
- 
   const dispatch = useDispatch();
 
   useEffect(() => {
-  dispatch(CheckAuthenticatedUser());
+    dispatch(CheckAuthenticatedUser());
   }, [dispatch]);
-  const { isAuthenticated, user,isLoading } = useSelector((state) => state.auth);
+  const { isAuthenticated, user, isLoading } = useSelector(
+    (state) => state.auth,
+  );
   // console.log("App.jsx isAuthenticated:", isAuthenticated, "user:", user);
 
   if (isLoading) {
@@ -33,7 +35,7 @@ function App() {
 
   return (
     <>
-      <Routes>   
+      <Routes>
         <Route
           path="/auth"
           element={
@@ -75,7 +77,9 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
-          <Route path="listing" element={<Listing />} />
+          <Route path="products" element={<Listing />} />
+          <Route path="new-arrivals" element={<NewArrivals />} />
+          <Route path="product/:id" element={<ProductDetails />} />
         </Route>
       </Routes>
     </>

@@ -1,13 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
+    
 
     name: {
       type: String,
@@ -44,6 +39,29 @@ const productSchema = new mongoose.Schema(
       min: 0,
     },
 
+    discount: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 100,
+    },
+
+
+
+ 
+
+
+  badges: {
+  type: String,
+  enum: [
+    "Best Seller",
+    "Limited Edition",
+    "Exclusive",
+    "New Arrival"
+  ],
+  default: null,
+},
+
     stock: {
       type: Number,
       required: true,
@@ -75,6 +93,7 @@ const productSchema = new mongoose.Schema(
       enum: ["Active", "Low Stock", "Out of Stock"],
       default: "Active",
     },
+
   },
   {
     timestamps: true,
@@ -83,4 +102,4 @@ const productSchema = new mongoose.Schema(
 
 const Product = mongoose.model("Product", productSchema);
 
-export default Product;
+module.exports = Product;

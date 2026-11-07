@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import AuthReducer from "./AuthSlice/authslice";
+import adminPorductSlice from "./admin/product_slice";
 
 
 
@@ -7,7 +8,8 @@ import AuthReducer from "./AuthSlice/authslice";
 
 const store=configureStore({
     reducer:{
-        auth:AuthReducer
+        auth:AuthReducer,
+        adminProduct:adminPorductSlice,
     }
 })
 
